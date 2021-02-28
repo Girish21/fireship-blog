@@ -25,10 +25,10 @@ export const AuthContextWrapper = (props) => {
 	const [username, setUsername] = React.useState<string>(null)
 
 	React.useEffect(() => {
-		let unsubscribe
+		let unsubscribe: () => void
 
 		if (user) {
-			const ref = firestore.collection('user').doc(user.uid)
+			const ref = firestore.collection('users').doc(user.uid)
 			unsubscribe = ref.onSnapshot((doc) => setUsername(doc.data()?.username))
 		} else {
 			setUsername(null)

@@ -1,5 +1,6 @@
 import { SignInButton } from '../components/SignInButton'
 import { SignOutButton } from '../components/SignoutButton'
+import { UsernameForm } from '../components/UsernameForm'
 import { useAuthContext } from '../lib/context/AuthContext'
 
 export default function Page({}) {
@@ -18,8 +19,4 @@ export default function Page({}) {
 			)}
 		</main>
 	)
-}
-
-function UsernameForm() {
-	return null
 }

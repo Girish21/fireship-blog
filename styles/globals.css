@@ -77,3 +77,22 @@ fieldset {
 code {
 	overflow-x: scroll;
 }
+
+.text-sm {
+	font-size: 0.85rem;
+}
+
+.text-danger {
+	font-weight: bold;
+	color: var(--color-red);
+}
+
+.text-success {
+	font-weight: bold;
+	color: var(--color-green);
+}
+
+.text-info {
+	font-weight: bold;
+	color: var(--color-blue);
+}
