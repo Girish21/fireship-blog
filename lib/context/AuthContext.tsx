@@ -3,39 +3,39 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth, firestore } from '../firebase'
 
 type AuthContextType = {
-	user: any
-	username: string
+  user: any
+  username: string
 }
 
 const AuthContext = React.createContext<AuthContextType>({
-	user: null,
-	username: null,
+  user: null,
+  username: null,
 })
 
 export const useAuthContext = () => {
-	const value = React.useContext(AuthContext)
+  const value = React.useContext(AuthContext)
 
-	if (!value) throw new Error('useAuthContext should be used under AuthContext')
+  if (!value) throw new Error('useAuthContext should be used under AuthContext')
 
-	return value
+  return value
 }
 
 export const AuthContextWrapper = (props) => {
-	const [user] = useAuthState(auth)
-	const [username, setUsername] = React.useState<string>(null)
+  const [user] = useAuthState(auth)
+  const [username, setUsername] = React.useState<string>(null)
 
-	React.useEffect(() => {
-		let unsubscribe: () => void
+  React.useEffect(() => {
+    let unsubscribe: () => void
 
-		if (user) {
-			const ref = firestore.collection('users').doc(user.uid)
-			unsubscribe = ref.onSnapshot((doc) => setUsername(doc.data()?.username))
-		} else {
-			setUsername(null)
-		}
+    if (user) {
+      const ref = firestore.collection('users').doc(user.uid)
+      unsubscribe = ref.onSnapshot((doc) => setUsername(doc.data()?.username))
+    } else {
+      setUsername(null)
+    }
 
-		return unsubscribe
-	}, [user])
+    return unsubscribe
+  }, [user])
 
-	return <AuthContext.Provider value={{ user, username }} {...props} />
+  return <AuthContext.Provider value={{ user, username }} {...props} />
 }

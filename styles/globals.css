@@ -1,98 +1,98 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
-	--color-bg: #eef0f1;
-	--color-text: #08090a;
-	--color-blue: #3b49df;
-	--color-red: #df3b3b;
-	--color-green: #3bdf72;
-	--color-gray: #b5bdc4;
+  --color-bg: #eef0f1;
+  --color-text: #08090a;
+  --color-blue: #3b49df;
+  --color-red: #df3b3b;
+  --color-green: #3bdf72;
+  --color-gray: #b5bdc4;
 }
 
 * {
-	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html,
 body {
-	padding: 0;
-	margin: 0;
-	font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-		Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-	background-color: var(--color-bg);
-	color: var(--color-text);
-	margin-top: 50px;
+  padding: 0;
+  margin: 0;
+  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin-top: 50px;
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 main {
-	padding: 1rem 10vw;
+  padding: 1rem 10vw;
 }
 
 h1 {
-	font-size: 2rem;
+  font-size: 2rem;
 }
 h2 {
-	font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 h2 {
-	font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
-	cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 img {
-	max-width: 100%;
+  max-width: 100%;
 }
 
 input {
-	display: inline-block;
-	outline: none;
-	border: none;
-	font-size: 1.5rem;
-	width: 100%;
-	padding: 5px 10px;
+  display: inline-block;
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 5px 10px;
 }
 
 fieldset {
-	border: none;
-	padding: 1rem 0;
-	font-size: 1.25rem;
+  border: none;
+  padding: 1rem 0;
+  font-size: 1.25rem;
 }
 
 code {
-	overflow-x: scroll;
+  overflow-x: scroll;
 }
 
 .text-sm {
-	font-size: 0.85rem;
+  font-size: 0.85rem;
 }
 
 .text-danger {
-	font-weight: bold;
-	color: var(--color-red);
+  font-weight: bold;
+  color: var(--color-red);
 }
 
 .text-success {
-	font-weight: bold;
-	color: var(--color-green);
+  font-weight: bold;
+  color: var(--color-green);
 }
 
 .text-info {
-	font-weight: bold;
-	color: var(--color-blue);
+  font-weight: bold;
+  color: var(--color-blue);
 }

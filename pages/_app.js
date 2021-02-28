@@ -4,13 +4,13 @@ import { Toaster } from 'react-hot-toast'
 import { AuthContextWrapper } from '../lib/context/AuthContext'
 
 function MyApp({ Component, pageProps }) {
-	return (
-		<AuthContextWrapper>
-			<Navbar />
-			<Component {...pageProps} />
-			<Toaster />
-		</AuthContextWrapper>
-	)
+  return (
+    <AuthContextWrapper>
+      <Navbar />
+      <Component {...pageProps} />
+      <Toaster />
+    </AuthContextWrapper>
+  )
 }
 
 export default MyApp
