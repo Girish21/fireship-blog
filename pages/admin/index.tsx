@@ -1,10 +1,13 @@
 import { Authcheck } from '../../components/Authcheck'
+import { CreateNewPost } from '../../components/CreateNewPost'
+import { PostList } from '../../components/PostList'
 
 export default function Page({}) {
   return (
     <main>
       <Authcheck>
-        <h1>Admin</h1>
+        <PostList />
+        <CreateNewPost />
       </Authcheck>
     </main>
   )

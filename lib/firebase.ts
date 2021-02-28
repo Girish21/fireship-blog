@@ -37,9 +37,10 @@ const parseToJSON = (doc: firebase.firestore.DocumentSnapshot) => {
 }
 
 const fromMillis = firebase.firestore.Timestamp.fromMillis
+const serverTimestamp = firebase.firestore.FieldValue.serverTimestamp
 
 const parseTime = (post: any) => {
-  if (!post) return undefined;
+  if (!post) return undefined
 
   return {
     ...post,
@@ -56,4 +57,5 @@ export {
   parseToJSON,
   fromMillis,
   parseTime,
+  serverTimestamp,
 }

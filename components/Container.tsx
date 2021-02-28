@@ -35,3 +35,51 @@ export const Container = styled.div`
     }
   }
 `
+
+export const AdminContainer = styled.div`
+  min-height: 100vh;
+  display: flex;
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  & section {
+    width: 60vw;
+    margin-right: 1rem;
+
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+  & aside {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    min-width: 250px;
+    min-height: 200px;
+    text-align: center;
+    position: sticky;
+    top: 80px;
+    height: 0;
+
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+      position: relative;
+    }
+  }
+`
+
+export const AdminControls = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  & textarea {
+    height: 60vh;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    font-size: 1.25rem;
+  }
+`
