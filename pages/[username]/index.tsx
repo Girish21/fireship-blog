@@ -1,5 +1,6 @@
 import { GetServerSideProps, NextPage } from 'next'
 import * as React from 'react'
+import { Meta } from '../../components/Meta'
 import { PostFeed } from '../../components/PostFeed'
 import { UserProfile } from '../../components/UserProfile'
 import { parseToJSON } from '../../lib/firebase'
@@ -38,6 +39,7 @@ const UserProfilePage: NextPage<{ user: any; posts: Post[] }> = ({
 }) => {
   return (
     <main>
+      <Meta title={`@${user.username}`} />
       <UserProfile user={user} />
       <PostFeed posts={posts} admin={false} />
     </main>

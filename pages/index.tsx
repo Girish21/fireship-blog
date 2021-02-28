@@ -1,10 +1,11 @@
-import * as React from 'react'
 import { GetServerSideProps, NextPage } from 'next'
+import * as React from 'react'
+import { ButtonBlue } from '../components/Button'
 import { Loader } from '../components/Loader'
+import { Meta } from '../components/Meta'
+import { PostFeed } from '../components/PostFeed'
 import { firestore, fromMillis, parseToJSON } from '../lib/firebase'
 import { Post } from '../types'
-import { PostFeed } from '../components/PostFeed'
-import { ButtonBlue } from '../components/Button'
 
 const LIMIT = 10
 
@@ -51,6 +52,7 @@ const Home: NextPage<{ posts: Post[] }> = ({ posts: prefetchedPosts }) => {
 
   return (
     <main>
+      <Meta />
       <PostFeed posts={posts} />
       {!loading && !postsEnd && (
         <ButtonBlue onClick={getMore}>Load more</ButtonBlue>

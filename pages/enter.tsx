@@ -1,3 +1,4 @@
+import { Meta } from '../components/Meta'
 import { SignInButton } from '../components/SignInButton'
 import { SignOutButton } from '../components/SignoutButton'
 import { UsernameForm } from '../components/UsernameForm'
@@ -8,6 +9,7 @@ export default function Page({}) {
 
   return (
     <main>
+      <Meta title='Sign up for the next awesome app!' />
       {user ? (
         !username ? (
           <UsernameForm />

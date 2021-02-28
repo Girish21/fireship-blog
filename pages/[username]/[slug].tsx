@@ -1,7 +1,9 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { useDocumentData } from 'react-firebase-hooks/firestore'
+import { useRouter } from 'next/router'
 import { Card } from '../../components/Card'
 import { Container } from '../../components/Container'
+import { Meta } from '../../components/Meta'
 import { PostContent } from '../../components/PostContent'
 import { firestore, parseTime, parseToJSON } from '../../lib/firebase'
 import { getUserWithUsername } from '../../lib/getUserWithUsername'
@@ -46,22 +48,26 @@ const Page: NextPage<{ post: Post; path: string }> = ({
   post: serverPost,
   path,
 }) => {
+  const router = useRouter()
   const postRef = firestore.doc(path)
   const [realTimeData] = useDocumentData<Post>(postRef)
 
   const post = parseTime(realTimeData) ?? serverPost
 
   return (
-    <Container as='main'>
-      <section>
-        <PostContent post={post} />
-      </section>
-      <Card as='aside'>
-        <p>
-          <strong>{post.heartCount || 0} 💗</strong>
-        </p>
-      </Card>
-    </Container>
+    <>
+      <Meta title={post?.title ?? router.query.slug} />
+      <Container as='main'>
+        <section>
+          <PostContent post={post} />
+        </section>
+        <Card as='aside'>
+          <p>
+            <strong>{post.heartCount || 0} 💗</strong>
+          </p>
+        </Card>
+      </Container>
+    </>
   )
 }
 
