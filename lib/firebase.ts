@@ -23,4 +23,16 @@ const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
 const storage = firebase.storage()
 const firestore = firebase.firestore()
 
-export { auth, firestore, googleAuthProvider, storage }
+const parseToJSON = (doc: firebase.firestore.DocumentSnapshot) => {
+  const data = doc.data()
+
+  if (!data) return {}
+
+  return {
+    ...data,
+    createdAt: data.createdAt.toMillis(),
+    updatedAt: data.updatedAt.toMillis(),
+  }
+}
+
+export { auth, firestore, googleAuthProvider, storage, parseToJSON }

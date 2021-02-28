@@ -4,7 +4,7 @@ import { auth, firestore } from '../firebase'
 
 type AuthContextType = {
   user: any
-  username: string
+  username: string | null
 }
 
 const AuthContext = React.createContext<AuthContextType>({
@@ -20,12 +20,14 @@ export const useAuthContext = () => {
   return value
 }
 
-export const AuthContextWrapper = (props) => {
+export const AuthContextWrapper: React.FunctionComponent<
+  Record<string, unknown>
+> = (props) => {
   const [user] = useAuthState(auth)
-  const [username, setUsername] = React.useState<string>(null)
+  const [username, setUsername] = React.useState<string | null>(null)
 
   React.useEffect(() => {
-    let unsubscribe: () => void
+    let unsubscribe: () => void = () => {}
 
     if (user) {
       const ref = firestore.collection('users').doc(user.uid)
