@@ -35,4 +35,6 @@ const parseToJSON = (doc: firebase.firestore.DocumentSnapshot) => {
   }
 }
 
-export { auth, firestore, googleAuthProvider, storage, parseToJSON }
+const fromMillis = firebase.firestore.Timestamp.fromMillis
+
+export { auth, firestore, googleAuthProvider, storage, parseToJSON, fromMillis }

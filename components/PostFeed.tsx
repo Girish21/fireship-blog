@@ -5,7 +5,7 @@ import { Card } from './Card'
 
 type PostFeedType = {
   posts?: Post[]
-  admin: boolean
+  admin?: boolean
 }
 
 type PostItemProp = {
@@ -41,7 +41,7 @@ const PostItem: React.FunctionComponent<PostItemProp> = ({ post, admin }) => {
 
 export const PostFeed: React.FunctionComponent<PostFeedType> = ({
   posts,
-  admin,
+  admin = false,
 }) => (
   <>
     {posts
