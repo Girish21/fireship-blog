@@ -1,6 +1,9 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { useDocumentData } from 'react-firebase-hooks/firestore'
+import { Card } from '../../components/Card'
+import { Container } from '../../components/Container'
 import { PostContent } from '../../components/PostContent'
-import { firestore, parseToJSON } from '../../lib/firebase'
+import { firestore, parseTime, parseToJSON } from '../../lib/firebase'
 import { getUserWithUsername } from '../../lib/getUserWithUsername'
 import { Post } from '../../types'
 
@@ -39,11 +42,26 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-const Page: NextPage<{ post: Post }> = ({ post }) => {
+const Page: NextPage<{ post: Post; path: string }> = ({
+  post: serverPost,
+  path,
+}) => {
+  const postRef = firestore.doc(path)
+  const [realTimeData] = useDocumentData<Post>(postRef)
+
+  const post = parseTime(realTimeData) ?? serverPost
+
   return (
-    <main>
-      <PostContent post={post} />
-    </main>
+    <Container as='main'>
+      <section>
+        <PostContent post={post} />
+      </section>
+      <Card as='aside'>
+        <p>
+          <strong>{post.heartCount || 0} 💗</strong>
+        </p>
+      </Card>
+    </Container>
   )
 }
 
