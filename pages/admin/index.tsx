@@ -1,7 +1,11 @@
+import { Authcheck } from '../../components/Authcheck'
+
 export default function Page({}) {
   return (
     <main>
-      <h1>Admin</h1>
+      <Authcheck>
+        <h1>Admin</h1>
+      </Authcheck>
     </main>
   )
 }
